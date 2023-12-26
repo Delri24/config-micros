@@ -1,0 +1,14 @@
+server:
+  port: 7777
+spring:
+  cloud: 
+   gateway: 
+    routes:
+      - id: evento
+        uri: lb://evento/
+        predicates:
+          - Path=/evento/**
+      - id: usuario
+        uri: lb://usuario/
+        predicates:
+          - Path=/usuarios/**
